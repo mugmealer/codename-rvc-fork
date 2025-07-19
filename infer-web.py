@@ -126,7 +126,7 @@ if torch.cuda.is_available() or ngpu != 0:
             )
 if if_gpu_ok and len(gpu_infos) > 0:
     gpu_info = "\n".join(gpu_infos)
-    default_batch_size = min(mem) // 2
+    default_batch_size = 8
 else:
     gpu_info = "Unfortunately, your gpu's not supported for training models."
     default_batch_size = 1
@@ -1346,7 +1346,7 @@ with gr.Blocks(title=" Codename-RVC-Fork 🍇 ") as app:
                     maximum=config.n_cpu,
                     step=1,
                     label="Number of CPU cores used used for pitch extraction and dataset processing.",
-                    value=int(np.ceil(config.n_cpu / 1.5)),
+                    value=5,
                     interactive=True,
                 )
             with gr.Group():  # 暂时单人的, 后面支持最多4人的#数据处理
@@ -1390,7 +1390,7 @@ with gr.Blocks(title=" Codename-RVC-Fork 🍇 ") as app:
                         f0method8 = gr.Radio(
                             label="General info; Crepe and mangio-crepe are similar, just the former allows for the change of 'hop_length' - can extract on cpu but it's EXTREMELY slow ( More about crepe in info tab ). Rmvpe and rmvpe_gpu are the same, just _gpu variant is gpu accelerated - _gpu variant is the fastest gpu method, provides HQ results, both of em. Harvest isn't the best and is not recommended. PM is kept for the sake of legacy - definitely not recommended. ",
                             choices=["pm", "harvest", "crepe", "mangio-crepe", "rmvpe", "rmvpe_gpu"],
-                            value="rmvpe",
+                            value="crepe",
                             interactive=True,
                         )
                         # Mangio element
@@ -1449,7 +1449,7 @@ with gr.Blocks(title=" Codename-RVC-Fork 🍇 ") as app:
                         maximum=10000,
                         step=1,
                         label="Total amount of epochs / iterations.",
-                        value=20,
+                        value=1000,
                         interactive=True,
                     )
                     batch_size12 = gr.Slider(

@@ -47,7 +47,6 @@ colorama==0.4.6
 pyworld==0.3.2
 httpx==0.23.0
 onnxruntime==1.16.3
-onnxruntime-directml==1.16.3
 onnxruntime-gpu==1.16.3
 torchcrepe==0.0.20
 fastapi==0.88.0

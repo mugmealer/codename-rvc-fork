@@ -5,6 +5,13 @@ set -e
 
 echo "--- Starting RVC Fork Dependency Installation ---"
 
+# --- 2. Install Other Requirements ---
+echo "Installing requirements from rvc-requirements.txt..."
+python -m pip install pip==23.3.2
+pip install -r requirements/RVC/reclists-RVC/rvc-requirements.txt
+
+pip uninstall torch torchvision torchaudio
+
 # --- 1. Install PyTorch with the Correct CUDA Version ---
 echo "Detecting CUDA version..."
 
@@ -34,11 +41,6 @@ fi
 
 echo "Installing PyTorch for CUDA version string: $CUDA_VERSION_STRING"
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/$CUDA_VERSION_STRING
-
-# --- 2. Install Other Requirements ---
-echo "Installing requirements from rvc-requirements.txt..."
-python -m pip install pip==23.3.2
-pip install -r requirements/RVC/reclists-RVC/rvc-requirements.txt
 
 # --- 3. Download Models ---
 echo "Downloading pre-trained models..."

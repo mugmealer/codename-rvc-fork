@@ -32,9 +32,11 @@ import threading
 import shutil
 import logging
 import signal
+from fairseq.data.dictionary import Dictionary
 
 from infer.lib.audio import load_audio
 
+torch.serialization.add_safe_globals([Dictionary])
 logging.getLogger("numba").setLevel(logging.WARNING)
 logging.getLogger("httpx").setLevel(logging.WARNING)
 

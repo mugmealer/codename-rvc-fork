@@ -23,6 +23,10 @@ import numpy as np
 import soundfile as sf
 import torch
 import torch.nn.functional as F
+from fairseq.data.dictionary import Dictionary
+
+# Add this line to trust the Dictionary class globally for this session
+torch.serialization.add_safe_globals([Dictionary])
 
 if "privateuseone" not in device:
     device = "cpu"

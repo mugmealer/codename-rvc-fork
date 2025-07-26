@@ -37,6 +37,7 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 
 # --- 2. Install Other Requirements ---
 echo "Installing requirements from rvc-requirements.txt..."
+python -m pip install pip=23.3.2
 pip install -r requirements/RVC/reclists-RVC/rvc-requirements.txt
 
 # --- 3. Download Models ---

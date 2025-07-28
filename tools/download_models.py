@@ -76,4 +76,4 @@ if __name__ == "__main__":
         print(f"Downloading {model}...")
         dl_model(RVC_DOWNLOAD_LINK + "uvr5_weights/", model, rvc_models_dir)
 """
-    print("All models downloaded!")
+print("All models downloaded!")

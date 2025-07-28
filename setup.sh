@@ -31,6 +31,8 @@ if [[ "$CUDA_VERSION" == "11.8" ]]; then
     CUDA_VERSION_STRING="cu118"
 elif [[ "$CUDA_VERSION" == "12.1" ]]; then
     CUDA_VERSION_STRING="cu121"
+elif [[ "$CUDA_VERSION" == "12.8" ]]; then
+    CUDA_VERSION_STRING="cu128"
 # You can add more mappings for other CUDA versions.
 # Check the PyTorch website for the correct string: https://pytorch.org/get-started/previous-versions/
 else
